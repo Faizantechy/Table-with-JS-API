@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+
+      body{
+
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1{
+
+        text-align: center;
+      }
+
+      table{
+
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+     th{
+
+        padding: 10px;
+        font-weight: 800;
+      }
+
+      td{
+
+        padding: 10px;
+        font-weight: 500;
+      }
+
+   
+    </style>
+   
+    <title>Table with API.</title>
+  </head>
+  <body>
+
+
+    <h1>Table of the Users:</h1>
+
+    <table border="2px solid black">
+
+      <tr>
+
+        <th>Name</th>
+        <th>CityName</th>
+
+        <th>Street</th>
+        <th>email</th>
+      </tr>
+
+      <tr>
+
+      </tr>
+
+    </table>
+
+  </body>
+
+  <script>
+    //Callbacks:
+
+    // function pickUpBook(callback) {
+    //   setTimeout(() => {
+    //     console.log("Firstly, Pick Up Your Maths Book");
+    //     callback();
+    //   }, 1000);
+    // }
+
+    // function goToPage1(callback) {
+    //   setTimeout(() => {
+    //     console.log("Go To The Page number 1");
+    //     callback();
+    //   }, 500);
+    // }
+
+    // function solveQ(callback) {
+    //   setTimeout(() => {
+    //     console.log("Then, solve the first question of the page.");
+    //     callback();
+    //   }, 2000);
+    // }
+
+    // function showMe(callback) {
+    //   console.log("If the question is right, show me.");
+    //   callback();
+    // }
+
+    // function takeYourReward(callback) {
+    //   setTimeout(() => {
+    //     console.log(
+    //       "Take your reward which I will give you when you get the question right."
+    //     );
+
+    //     callback();
+    //   }, 300);
+    // }
+
+    // pickUpBook(() => {
+    //   goToPage1(() => {
+    //     solveQ(() => {
+    //       showMe(() => {
+    //         takeYourReward(() => {
+    //           console.log("All Tasks Completed");
+    //         });
+    //       });
+    //     });
+    //   });
+    // });
+
+
+    //promise:
+
+//     let age=20;
+
+    
+//     const newPromise=()=>{
+// return new Promise((res,rej)=>{
+
+//     if(age===20){
+
+//         res('The promise is successfull')
+//     } else{
+
+//         rej('The Error')
+//     }
+
+// })
+
+//     }
+
+
+//     newPromise().then((data)=>{
+
+//         console.log(data);
+        
+
+//     }).catch((error)=>{
+
+//         console.log(error)
+
+//     })
+
+//Promise chaining:
+
+
+// const goToPage1=()=>{
+
+//     return new Promise((res)=>{
+
+//         setTimeout(() => {
+            
+//             res('Firstly, go to page 1')
+//         }, 1000);
+
+//     })
+
+// }
+// let solveQ=goToPage1().then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+
+//      res('Then, Solve the First Question')
+
+//     })
+
+// })
+
+
+// let showMe=solveQ.then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+
+//         setTimeout(() => {
+//             res('Then, you have to show me answer')
+
+//         }, 2000);
+
+
+//     })
+// })
+
+
+// let takeYourReward=showMe.then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+
+//         setTimeout(() => {
+//             res('Take your Reward if you get the answer right.')
+
+//         }, 500);
+
+//     })
+
+// })
+
+// takeYourReward.then((data)=>{
+
+//     console.log(data)
+
+// })
+
+// const Task1=()=>{
+
+//     return new Promise((res)=>{
+
+//         res('Vegetables chopped.')
+
+//     })
+
+// }
+
+// const Task2=Task1().then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+// res('Water boiled')
+
+//     })
+// })
+
+
+// const Task3=Task2.then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+
+//         res('Rice cooked.')
+
+//     })
+// })
+
+// const Task4=Task3.then((data)=>{
+// console.log(data)
+// return new Promise((res)=>{
+
+//     res('Meal served.')
+// })
+
+// })
+
+// const Task5=Task4.then((data)=>{
+
+//     console.log(data)
+//     return new Promise((res)=>{
+// res('Meal enjoyed.')
+
+//     })
+// })
+
+// Task5.then((data)=>{
+
+//     console.log(data)
+// })
+
+
+//Async Await:
+
+
+// function pickBook(){
+
+//     new Promise((res)=>{
+
+//         setTimeout(() => {
+//             console.log('Pick Your Book First')
+//             res('200')  
+//         }, 2000);
+
+       
+
+//     })
+   
+// }
+
+// function readIt(){
+
+// new Promise((res)=>{
+
+//     setTimeout(() => {
+//         console.log('Read your Book After that.')
+//         res('200')  
+//     }, 1000);
+
+ 
+
+// })
+
+// }
+
+// (async function allData(){
+
+//     pickBook();
+//     readIt();
+
+// })()
+
+
+
+//Fetch API IN JS:
+
+fetch('https://jsonplaceholder.typicode.com/users').
+then(response=>response.json()).then(data=>{
+
+  data.forEach(val => {
+
+    console.log(val)
+
+  const table=document.querySelector('table')
+
+  const row=document.createElement('tr');
+ const nameCell=document.createElement('td')
+ nameCell.textContent=val.name;
+
+ const cityName=document.createElement('td')
+ cityName.textContent=val.address.city;
+
+ const street=document.createElement('td')
+ street.textContent=val.address.street;
+
+ const email=document.createElement('td')
+ email.textContent=val.email;
+
+
+ 
+
+
+ row.append(nameCell,cityName,street,email)
+//  row.appendChild(cityName)
+
+//  row.appendChild(street)
+//  row.appendChild(email)
+
+
+    table.appendChild(row)
+    
+  });
+  
+
+}).catch(error=>console.log('Could not fetch the Data from the API.'))
+
+</script>
